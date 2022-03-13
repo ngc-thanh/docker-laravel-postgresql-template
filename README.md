@@ -54,3 +54,18 @@ user: default
 password: secret
 => save
 `
+
+
+deploy to heroku
+heroku addons:create heroku-postgresql
+$ heroku config:set DB_DATABASE=[データベース名]
+$ heroku config:set DB_HOST=[ホスト名]
+$ heroku config:set DB_USERNAME=[ユーザー名]
+$ heroku config:set DB_PASSWORD=[パスワード]
+$ heroku config:set APP_KEY=$(php artisan key:generate --show)
+$ heroku config:set APP_ENV=heroku
+$ heroku config:set LANG=ja_JP.UTF-8
+$ heroku config:set TZ=Asia/Tokyo
+
+
+Make sure your php version in composer.json file and heroku are the same!!!!
